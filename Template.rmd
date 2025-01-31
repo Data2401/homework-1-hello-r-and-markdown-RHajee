@@ -61,17 +61,25 @@ The correlation coefficient between 'x' and 'y' in the star dataset is 0.001 gre
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+Plotting the data in the circle dataset:
 
-```{r}
+```{r plot-circle, fig.height=3, fig.width=3}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
+```
 
+Calculating the correlation coefficient between 'x' and 'y' for the circle dataset:
+ 
+```{r cor-circle}
+
+circle_data %>%
+  summarize(r = cor(x, y))
 
 ```
 
-```{r}
-
-
-```
+The correlation coefficient between 'x' and 'y' in the circle dataset is 0.004 les than the correlation coefficient between 'x' and 'y' in the dino dataset.
 
 ### Exercise 5
 
